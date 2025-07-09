@@ -26,6 +26,14 @@ map.erase("apple");
 for(const auto&[key, value]: map){}
 // map in python {"name": "Alice", "age": 30, "city": "New York"}
 std::unordered_map<int, std::string> myMap = { {1, "apple"},{2, "banana"}}
+// how to erase while looping through a map:
+for (auto it = m.begin(); it != m.end(); ) {
+    if (it->first % 2 == 1) {
+        it = m.erase(it);  // safe and valid
+    } else {
+        ++it;
+    }
+}
 
 // Set
 std::set<int> s(vec.begin(), vec.end());
